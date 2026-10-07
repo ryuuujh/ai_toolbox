@@ -1,0 +1,31 @@
+# 참고 자료(제공받은 COSTD 원본 CSS·폰트 원본)는 배포에 포함하지 않음
+reference/
+
+# 원본 엑셀 (변환본 data/ai_services.csv만 포함)
+*.xlsx
+*.xls
+~$*
+
+# 임시 파일·로그
+*.log
+*.tmp
+*.bak
+*.swp
+__test_*.html
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# 편집기·도구 설정
+.vscode/
+.idea/
+.claude/
+node_modules/
+.vercel/
+
+# 사이트에 필요한 폴더는 반드시 포함 (ignore 규칙에서 제외)
+!fonts/
+!img/
+!css/
+!js/
+!data/ai_services.csv

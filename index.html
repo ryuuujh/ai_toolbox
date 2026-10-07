@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>4조의 AI 서비스 도구함</title>
+  <meta name="description" content="조원들이 조사하고 직접 체험한 AI 서비스를 분야별로 검색하고 상세 정보를 확인하는 개인 도구함">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip_link" href="#main_content">본문으로 건너뛰기</a>
+
+  <div class="layout">
+    <!-- 모바일 상단 바 -->
+    <header class="mobile_bar">
+      <button type="button" class="menu_button" id="menu_button" aria-controls="sidebar" aria-expanded="false">
+        <span class="menu_icon" aria-hidden="true"></span>
+        <span>분야 메뉴</span>
+      </button>
+      <span class="mobile_bar_title">4조의 AI 서비스 도구함</span>
+    </header>
+
+    <div class="sidebar_overlay" id="sidebar_overlay" hidden></div>
+
+    <!-- 왼쪽 사이드바 -->
+    <aside class="sidebar" id="sidebar" aria-label="분야 메뉴">
+      <div class="sidebar_head">
+        <a class="brand" href="./">
+          <span class="brand_mark" aria-hidden="true">AI</span>
+          <span class="brand_text">4조의 AI 서비스 도구함</span>
+        </a>
+        <button type="button" class="sidebar_close" id="sidebar_close" aria-label="메뉴 닫기">×</button>
+      </div>
+      <nav class="category_nav">
+        <p class="nav_label" id="nav_label">분야</p>
+        <ul class="category_list" id="category_list" aria-labelledby="nav_label"></ul>
+      </nav>
+      <p class="sidebar_note">공식 요금은 2026-10-07 기준 확인 정보입니다. 최신 요금은 각 서비스의 공식 페이지에서 확인하세요.</p>
+    </aside>
+
+    <!-- 본문 -->
+    <main class="main" id="main_content">
+      <header class="page_header">
+        <h1 class="page_title"><span class="emoji title_icon" aria-hidden="true">🤖</span>4조의 AI 서비스 도구함</h1>
+        <p class="page_intro">조원들이 조사하고 직접 써본 AI 서비스를 분야별로 모았습니다. 검색과 분야 메뉴로 원하는 서비스를 찾고, 상세보기에서 사용방법·장단점·체험 소감·요금을 확인하세요.</p>
+      </header>
+
+      <section class="search_section" aria-label="검색">
+        <form class="search_form" id="search_form" role="search">
+          <label class="visually_hidden" for="search_input">서비스명 또는 소개 검색</label>
+          <div class="search_box">
+            <svg class="search_icon" aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+            <input type="search" id="search_input" class="search_input" placeholder="서비스명이나 소개로 검색" autocomplete="off" enterkeyhint="search">
+            <button type="button" class="search_clear" id="search_clear" aria-label="검색어 지우기" hidden>×</button>
+          </div>
+        </form>
+        <p class="result_status" id="result_status" aria-live="polite"></p>
+      </section>
+
+      <section class="list_section" aria-label="서비스 목록">
+        <ul class="card_grid" id="card_grid"></ul>
+        <div class="empty_state" id="empty_state" hidden>
+          <p class="empty_title">검색 결과가 없습니다</p>
+          <p class="empty_text">다른 검색어를 입력하거나 분야를 바꿔 보세요.</p>
+          <button type="button" class="button button_primary" id="reset_button">필터·검색 초기화</button>
+        </div>
+      </section>
+
+      <footer class="page_footer">
+        <p>원본 자료: 조원 공동 조사 엑셀 17개 항목 · 사이트 제작: 유정현 · 체험 소감은 작성자의 개인 의견이며 조사 당시 기준입니다.</p>
+      </footer>
+    </main>
+  </div>
+
+  <!-- 상세 모달 -->
+  <div class="modal_backdrop" id="modal_backdrop" hidden>
+    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal_title" tabindex="-1">
+      <div class="modal_header">
+        <div class="modal_header_text">
+          <p class="modal_category" id="modal_category"></p>
+          <div class="modal_heading">
+            <span class="modal_logo" id="modal_logo"></span>
+            <h2 class="modal_title" id="modal_title"></h2>
+          </div>
+          <div class="modal_badges" id="modal_badges"></div>
+        </div>
+        <button type="button" class="modal_close" id="modal_close" aria-label="닫기">×</button>
+      </div>
+      <div class="modal_body" id="modal_body"></div>
+      <div class="modal_footer">
+        <a class="button button_primary" id="modal_official" href="#" target="_blank" rel="noopener noreferrer">공식 사이트</a>
+        <button type="button" class="button button_secondary" id="modal_close_bottom">닫기</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/services.js" defer></script>
+  <script src="js/script.js" defer></script>
+</body>
+</html>
